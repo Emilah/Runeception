@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 
+import org.runeception.client.RSClient;
+
 public abstract class Script {
 
 	static Logger logger = Logger.getLogger(Script.class.getName());
@@ -32,8 +34,8 @@ public abstract class Script {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		scriptPane.setPreferredSize(new Dimension(300, 503));
-		scrollPane.setPreferredSize(new Dimension(300, 503));
+		scriptPane.setPreferredSize(new Dimension(300, RSClient.screenHeight));
+		scrollPane.setPreferredSize(new Dimension(300, RSClient.screenHeight));
 	}
 	
 	private static JTextPane scriptPane;

@@ -20,6 +20,7 @@ public class ToolBox extends JTabbedPane {
 
 	public ToolBox() {
 		setSize(new Dimension(300, 503));
+		setTabLayoutPolicy(1);
 	}
 	
 	public void addTool(String name, Component component) {

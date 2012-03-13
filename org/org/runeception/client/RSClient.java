@@ -21,6 +21,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.runeception.Boot;
 import org.runeception.client.audio.MusicPlayer;
 import org.runeception.client.plugins.Script;
+import org.runeception.client.plugins.impl.Calculator;
+import org.runeception.client.plugins.impl.ExperienceCalc;
 import org.runeception.client.plugins.impl.HighScore;
 import org.runeception.toolbox.ToolBox;
 
@@ -57,10 +59,31 @@ public class RSClient extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 					if(!toolbox.isVisible())
 						toolbox.getToolPane().setVisible(true);
-					highScore = new HighScore();
-					toolbox.addTool("HighScores", highScore);
+					toolbox.addTool("HighScores", new HighScore());
 					client.setSize(screenWidth - (toolbox.getTabCount() > 0 ? 300 : 0), client.getHeight());
 					Shell.setAppletSize(client.getWidth());
+			}
+		});
+		calculatorItem = new JMenuItem("Calculator");
+		calculatorItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!toolbox.isVisible())
+					toolbox.getToolPane().setVisible(true);
+				toolbox.addTool("Calculator", new Calculator());
+				client.setSize(screenWidth - (toolbox.getTabCount() > 0 ? 300 : 0), client.getHeight());
+				Shell.setAppletSize(client.getWidth());
+			}
+		});
+		experienceCalcItem = new JMenuItem("Skill Calculator");
+		experienceCalcItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!toolbox.isVisible())
+					toolbox.getToolPane().setVisible(true);
+				toolbox.addTool("Skill Calc", new ExperienceCalc());
+				client.setSize(screenWidth - (toolbox.getTabCount() > 0 ? 300 : 0), client.getHeight());
+				Shell.setAppletSize(client.getWidth());
 			}
 		});
 		guideItem = new JMenuItem("Guides");
@@ -84,8 +107,10 @@ public class RSClient extends JFrame {
 			}
 		});
 		utilityMenu.add(musicPlayerItem);
+		utilityMenu.add(calculatorItem);
 		pluginMenu.add(highScoreItem);
 		pluginMenu.add(guideItem);
+		pluginMenu.add(experienceCalcItem);
 		fileMenu.add(shutDownItem);
 		menuBar.add(fileMenu);
 		menuBar.add(pluginMenu);
@@ -120,8 +145,9 @@ public class RSClient extends JFrame {
 	private JMenu pluginMenu;
 	private JMenuItem shutDownItem;
 	private JMenuItem highScoreItem;
-	private HighScore highScore;
+	private JMenuItem calculatorItem;
 	private JMenuItem guideItem;
+	private JMenuItem experienceCalcItem;
 
 	private JMenu utilityMenu;
 	private JMenuItem musicPlayerItem;

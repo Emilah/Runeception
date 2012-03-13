@@ -24,6 +24,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import org.runeception.client.RSClient;
 /**
  * High Score Default Plugin
  * @author Emily Perkins (emilah@live.com)
@@ -52,7 +54,7 @@ public class HighScore extends JPanel {
 	private boolean initalized = false;
 	
 	public HighScore() {
-		setPreferredSize(new Dimension(300, 503));
+		setPreferredSize(new Dimension(300, RSClient.screenHeight));
 		setBackground(Color.BLACK);
 		setLayout(null);
 		
@@ -76,7 +78,9 @@ public class HighScore extends JPanel {
 		if(initalized) {
 			try {
 				drawIconImages(g);
-			} catch (InterruptedException | IOException e) {
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}

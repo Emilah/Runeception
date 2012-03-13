@@ -40,7 +40,7 @@ import org.runeception.utilities.Decompressor;
  * Fetches, Downloads, and Initializes
  * @author Emily (emilah@live.com)
  * @since 2/21/2012
- * @version 1.1.3
+ * @version 1.1.6
  *
  */
 public class Boot {
@@ -106,8 +106,6 @@ public class Boot {
 		new Decompressor().decompress(System.getProperty("user.home") + "//Runeception/cache/gcache.zip", 
 				System.getProperty("user.home") + "//Runeception/cache/", true);
 	}
-	
-	
 	/**
 	 * Checks for Updates dealing with both Runeception and Runescape
 	 * @return Needs Update
@@ -173,11 +171,17 @@ public class Boot {
 		}
 		writer.close();
 	}
-	
+	/**
+	 * Get Activation Key provided in parameters
+	 * @return Activation Key
+	 */
 	public String getActivationKey() {
 		return new StringBuilder(parameters.get("0")).toString();
 	}
-	
+	/**
+	 * Get Confirmation Key provided in parameters
+	 * @return Confirmation Key
+	 */
 	public String getConfirmationKey() {
 		return new StringBuilder(parameters.get("-1")).toString();
 	}

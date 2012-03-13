@@ -197,9 +197,11 @@ public class MusicPlayer extends PlaybackListener {
 						player.play();
 					audioIndex++;
 				}
-			} catch (JavaLayerException | IOException e1) {
+			} catch (IOException e1) {
 				e1.printStackTrace();
-				}
+				} catch (JavaLayerException e) {
+				e.printStackTrace();
+			}
 			}
 		});
 		soundThread.start();
